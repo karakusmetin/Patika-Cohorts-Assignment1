@@ -99,6 +99,22 @@ namespace GameItems.Controllers
 
 			return NoContent(); // 204 No Content
 		}
+		
+		[HttpPut("Query")]
+		public IActionResult PutQuery(int id, string Name,string Description)
+		{
+			var existingItem = items.FirstOrDefault(i => i.Id == id);
+
+			if (existingItem == null)
+			{
+				return NotFound(); // 404 Not Found
+			}
+
+			existingItem.Name = Name;
+			existingItem.Description = Description;
+
+			return NoContent(); // 204 No Content
+		}
 
 		// DELETE: api/items/1
 		[HttpDelete("{id}")]
