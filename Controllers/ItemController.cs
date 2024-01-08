@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using System.Xml.Linq;
+using System;
 
 namespace GameItems.Controllers
 {
@@ -22,6 +24,23 @@ namespace GameItems.Controllers
 		{
 			return Ok(items);
 		}
+
+		[HttpGet("list")]
+		public ActionResult<IEnumerable<List<Item>>> GetList([FromQuery] string Name)
+		{
+			if (string.IsNullOrEmpty(Name))
+				return BadRequest("İsim Boş Olamaz");
+			
+			var itemList = items.Where(x => x.Name.Contains(Name, StringComparison.OrdinalIgnoreCase)).ToList();
+			if (itemList.Count == 0)
+				return NotFound("İtem Listesi Bulunamadı");
+			else
+			{
+				return Ok(itemList);
+			}
+			
+		}
+
 		[HttpGet("{id}")]
 		public ActionResult<Item> GetById(int id)
 		{
