@@ -27,6 +27,8 @@ namespace GameItems
 		public void ConfigureServices(IServiceCollection services)
 		{
 
+			services.AddControllers().AddNewtonsoftJson();
+
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
 			{
