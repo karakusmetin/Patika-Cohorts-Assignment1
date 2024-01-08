@@ -41,6 +41,25 @@ namespace GameItems.Controllers
 			
 		}
 
+		[HttpGet("sort")]
+		public IActionResult GetSortedProducts([FromQuery] string sortBy)
+		{
+			if (string.IsNullOrEmpty(sortBy))
+			{
+				return BadRequest("Boş bırakılamaz");
+			}
+
+			switch (sortBy.ToLower())
+			{
+				case "name":
+					return Ok(items.OrderBy(p => p.Name).ToList());
+				case "price":
+					return Ok(items.OrderBy(p => p.Price).ToList());
+				default:
+					return BadRequest("Name' veya 'Price' yazılmalı.");
+			}
+		}
+
 		[HttpGet("{id}")]
 		public ActionResult<Item> GetById(int id)
 		{
