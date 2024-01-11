@@ -34,3 +34,5 @@ C:\Users\fener\Desktop\Chorts Ödev\GameItems\obj\Debug\net7.0\GameItems.genrunt
 C:\Users\fener\Desktop\Chorts Ödev\GameItems\obj\Debug\net7.0\ref\GameItems.dll
 C:\Users\fener\Desktop\Chorts Ödev\GameItems\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\fener\Desktop\Chorts Ödev\GameItems\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+C:\Users\fener\Desktop\Chorts Ödev\GameItems\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\fener\Desktop\Chorts Ödev\GameItems\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

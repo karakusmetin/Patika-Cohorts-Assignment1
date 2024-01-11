@@ -5,10 +5,11 @@ using System.Linq;
 using Newtonsoft.Json;
 using System.Xml.Linq;
 using System;
+using GameItems.Entities;
 
 namespace GameItems.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class ItemController : ControllerBase
 	{
@@ -122,14 +123,9 @@ namespace GameItems.Controllers
 		{
 			var itemToRemove = items.FirstOrDefault(i => i.Id == id);
 
-			if (itemToRemove == null)
-			{
-				return NotFound(); // 404 Not Found
-			}
-
 			items.Remove(itemToRemove);
 
-			return NoContent(); // 204 No Content
+			return Ok(); 
 		}
 
 		// PATCH: api/items/1
